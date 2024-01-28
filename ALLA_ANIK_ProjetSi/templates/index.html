@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>ALGER CLINIQUE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  a{
+    text-align: center; text-decoration: underline; 
+    transition: .3s;
+    color: rgb(255, 255, 255);
+  }
+ a:hover{
+   color: rgb(255, 255, 255);
+   transform: scale(1.1);
+  }
+  div{
+    text-align: center; margin: auto; display: grid; width: 350px; height: 180px; border-radius: 20px; background-color: rgb(83, 8, 189); color: rgb(255, 255, 255);
+    transition: .3s;
+  }
+</style>
+
+<body style="display: grid; font-size: 36px; font-family: Arial, Helvetica, sans-serif; overflow: hidden; height: 100vh;">
+    <div>
+<ul style="text-align: center; padding: 0;  display: flex; justify-content: center; align-items: center; margin: auto; list-style: none;">
+  <a  id="{{d.identifiant_unique}}" href="http://127.0.0.1:8000/cardio/">Cardiology</a>
+{% for d in departement %}
+<li>
+<a  id="{{d.identifiant_unique}}" href="http://127.0.0.1:8000/cardio/">{{d.nom_departement}}</a>
+</li>
+{% endfor %}
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    body{
+        display: grid;
+        height: 100vh;
+        width:100vw;
+
+    }
+    div{
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        background-color: rgb(3, 0, 96);
+        color: rgb(255, 255, 255);
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .form{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+    }
+    .h{
+        font-size: 48px;
+        font-weight: bold;
+    
+    }
+    input{
+        width: 100px;
+        height: 50px;
+        background-color: rgb(255, 40, 69);
+        border-radius: 16px;
+        border: none;
+        font-size: 20px;
+        font-weight: bold;
+        color: rgb(255, 255, 255);
+       transition: .3s;
+    }
+    input:hover{
+        background-color: rgb(255, 255, 255);
+        color: rgb(255, 40, 69);
+        cursor: pointer;
+        
+    }
+    p{
+        color: white;
+        font-size: 20px;
+    }
+    a{
+        color: rgb(40, 255, 223);
+        font-size: 20px;
+        font-weight: bold;
+        transition: .3s;
+    }
+    a:hover{
+        color: rgb(255, 24, 24);
+        cursor: pointer;
+    
+    }
+</style>
+<body>
+    <div>
+    <div class="h">Supprimer le midecin</div>
+<p> Etes-vous sure de vouloir supprimer ce midecin de id {{ m.identifiantunique }}? </p>
+<div class="form">
+<form action="" method="POST">
+{% csrf_token %}
+<input type="submit" value="Delete">
+</form>
+<a href="/gerer_medcin" > No, take me back </a>
+</div>
+</div>
+</body>
+</html>

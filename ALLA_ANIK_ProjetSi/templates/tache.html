@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100vw;
+    display: flex;
+    padding: 32px 32px;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+
+}
+.p{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 16px;    
+text-align: center;
+ }
+ul{
+  display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    align-items: center; 
+
+}
+.ul{
+    margin: 16px 0;
+    background-color: #070150;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 16px;
+    align-items: flex-start;
+}
+.edit{
+    width: 120px;
+    height: 40px;
+    background-color: rgb(121, 255, 228);
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    text-align: center;
+    font-weight: bolder;
+    display: flex
+    ;
+    justify-content: center;
+    align-items: center;
+}
+.action{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    gap: 16px;
+    
+}
+.sup{
+    width: 120px;
+    height: 40px;
+    background-color: rgb(255, 0, 0);
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bolder;
+    display: flex
+    ;
+    justify-content: center;
+    align-items: center;
+}
+
+</style>
+<body>
+    <div class="p">LISTE DES TACHES
+        <span><a href="http://127.0.0.1:8000/cardio/" style="color: #3134ff; font-size: 20px;">GO HOME</a></span>
+    </div>
+    <div class="p">
+        <a  class="p" href="http://127.0.0.1:8000/addt">ADD TACHE</a>
+    </div>
+    <div>
+        <ul>
+            {% for t in t %}
+           
+            <!-- <li>
+                {{t.identifiant_unique}}
+                {{t.date_creation}}
+                {{t.date_echeance}}
+                {{t.description}}
+                {{t.dossier_medical}}
+                {{t.medcin}}
+                {{t.statut}}
+                {{t.priorite}}
+            </li> -->
+            <ul class="ul">
+            <li>
+                
+                id : {{t.identifiantunique}} <br>
+                date creation : {{t.date_creation}} <br>
+                date echeance : {{t.date_echeance}} <br>
+                description : {{t.description}} <br>
+                dossier medical : {{t.dossier_medical}} <br>
+                medcin : {{t.medcin}} <br>
+                statut : {{t.statut}} <br>
+                priorite : {{t.priorite}} <br>
+            </li>
+            <div class="action">
+           
+                <a class="edit" href="http://127.0.0.1:8000/editT/{{t.identifiantunique}}">UPDATE</a>
+                <a class="sup" href="http://127.0.0.1:8000/deleteT/{{t.identifiantunique}}">DELETE</a>
+            </div>
+            {% endfor %}
+        </ul>
+        </ul>
+    </div>
+    <span><a href="http://127.0.0.1:8000/cardio/" style="color: #3134ff; font-size: 20px;">GO HOME</a></span>
+</body>
+</html>

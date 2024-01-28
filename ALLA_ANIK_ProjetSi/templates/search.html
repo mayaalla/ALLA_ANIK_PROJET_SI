@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+    }
+    body{
+      display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        height: 100vh;
+        width: 100vw;
+    }
+    a{
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        font-size: 20px;
+        transition: .2s;
+    }
+    .container{
+        width: 85%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        background-color: rgb(255, 70, 46);
+        height: 120px;
+        border-radius: 10px;
+    }
+    ul{
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    a:hover{
+        color: rgba(0, 10, 117, 0.93);
+        font-size: 23px;
+    }
+
+</style>
+<body>
+    <div class="container">
+        <ul>
+            <li><a href="http://127.0.0.1:8000/rechrcheP/">Search Patient</a></li>
+            <li><a href="http://127.0.0.1:8000/rechrcheM/">Search Midecin</a></li>
+            <li><a href="http://127.0.0.1:8000/rechrcheD/">Search Dossier Medical</a></li>
+            <li><a href="http://127.0.0.1:8000/rechrcheC/">Search Consultation</a></li>
+            <li><a href="http://127.0.0.1:8000/rechrcheR/">Search Rendez-vous</a></li>
+            <li><a href="http://127.0.0.1:8000/rechrcheT/">Search Tache</a></li>
+            <span><a href="http://127.0.0.1:8000/cardio/">GO HOME</a></span>
+        </ul>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    ul{
+        list-style: none;
+    }
+    body{
+        height: auto;
+        width: 100vw;
+        overflow-x: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 32px;
+        padding: 32px;
+        
+    }
+    div{
+        font-size: 32px;
+        font-weight: bold;
+    }
+    
+    form{
+        width: 60%;
+        padding: 16px 24px;
+        background-color:rgba(64, 0, 255, 0.488);
+        display: flex;
+        gap: 16px;
+        flex-direction: column;
+        flex-wrap: wrap;
+        border-radius: 16px;
+    }
+    p, .error{
+        display: flex;
+        justify-content: center;
+        gap: 4px;
+        flex-direction: column;
+        font-size: 20px;
+        font-weight: 700;
+    }
+    .error{
+        color: red;
+    }
+    input{
+        outline: none;
+        border: none;
+        border-radius: 10px;
+        height: 32px;
+        padding: 0 16px;
+        background-color: rgb(255, 255, 255);
+        transition:  .2s ;
+    }
+    input[type="submit"]{
+        background-color: rgb(64, 0, 255);
+        color: rgb(255, 255, 255);
+        font-weight: 700;
+        font-size: 20px;
+        cursor: pointer;
+        transition: 0.2s ;
+    }
+    input[type="submit"]:hover{
+        background-color: rgb(255, 25, 0);
+        color: white;
+        
+        cursor: pointer;
+    }
+    input:focus{
+        background-color: rgb(255, 255, 255);
+        border: 2px solid rgb(255, 0, 60);
+      
+    }
+    select{
+        outline: none;
+        border: none;
+        border-radius: 10px;
+        height: 32px;
+        padding: 0 16px;
+        background-color: rgb(255, 255, 255);
+        transition:  .2s ;
+    
+    }
+    .errorlist{
+        color: red;
+        font-weight: bolder;
+    }
+</style>
+<body>
+    <!-- def add(request):
+    if request.method == 'POST'
+    form = AddPatient(request.POST)
+    if form.is_valid():
+        msg = 'Patient ajouté avec succès'
+        form.save()
+        return render(request, 'create.html', {'form': form, 'msg': msg})
+    else:
+        form = AddPatient()
+        msg = 'Erreur lors de l\'ajout du patient'
+        return render(request, 'create.html', {'form': form}) -->
+
+        <div>AJOUTER UN PATIENT</div>
+        <span><a href="http://127.0.0.1:8000/cardio/" style="color: #3134ff; font-size: 20px;">GO HOME</a> - <a href="http://127.0.0.1:8000/gerer_patient/" style="color: #3134ff; font-size: 20px;">LIST PATIENT</a></span>
+        <p class="error">{{mssg}}</p>
+    <form action='' method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Ajouter">
+    </form>
+</body>
+</html>

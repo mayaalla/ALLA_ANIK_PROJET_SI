@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ul{
+    list-style: none;
+}
+body{
+    height: auto;
+    width: 100vw;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding: 32px;
+    
+}
+div{
+    font-size: 32px;
+    font-weight: bold;
+}
+.errorlist{
+    display: none;
+}
+form{
+    width: 60%;
+    padding: 16px 24px;
+    background-color:rgba(64, 0, 255, 0.488);
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border-radius: 16px;
+}
+p, .error{
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: 700;
+}
+.errorlist{
+    color: red;
+    font-weight: bolder;
+}
+input{
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    height: 32px;
+    padding: 0 16px;
+    background-color: rgb(255, 255, 255);
+    transition:  .2s ;
+}
+input[type="submit"]{
+    background-color: rgb(64, 0, 255);
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s ;
+}
+input[type="submit"]:hover{
+    background-color: rgb(255, 25, 0);
+    color: white;
+    
+    cursor: pointer;
+}
+input:focus{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 0, 60);
+  
+}
+select{
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    height: 32px;
+    padding: 0 16px;
+    background-color: rgb(255, 255, 255);
+    transition:  .2s ;
+
+}
+textarea{
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    height: 100px;
+    padding: 8px ;
+    background-color: rgb(255, 255, 255);
+    transition:  .2s ;
+    font-size: 20px;
+
+}
+.error{
+    color: red;
+
+}
+</style>
+<body>
+    <h1>Mise à jour d'un dossier</h1>
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update">
+    </form>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        width: 100vw;
+        display: flex;
+        padding: 32px 32px;
+        align-content: center;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        overflow-x: hidden;
+    }
+    li{
+        font-size: 20px;
+    }
+    ul{
+        list-style: none;
+    }
+    label{
+        font-size: 20px;
+        font-weight: bold;
+    }
+    input{
+        padding: 8px 16px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin: 8px 0;
+        background-color: #ccc;
+    }
+    .form{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    
+    }
+    .rslt{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 32px;
+    }
+    button{
+        text-align: center;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin: 8px 0;
+        background-color: #3134ff;
+        cursor: pointer;
+        height : 32px;
+        width: 80px;
+        color: white;
+        font-weight: bold;
+        transition: .2s ease;
+
+    }
+    button:hover{
+        background-color: #f02c43;
+        color: rgb(255, 255, 255);
+        transform: scale(1.08);
+    }
+    .rchrch{
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 16px;
+        width: 100%;
+        background-color: aquamarine;
+        border-radius: 8px;
+        padding: 10px;
+    }
+    .ul{
+        margin: 32px 0;
+        background-color: #3134ff;
+        border-radius: 8px;
+       
+        color: white;
+    }
+   li{
+    margin: 10px;
+   }
+</style>
+<body>
+    <div class="rchrch">Recherche Tache</div>
+    <div class="form">
+    <form action='' method="get">
+        <label for="search"> Entrer le id de Tache: </label>
+        <input type="text" name="rechrcheT" id="search">
+        <button type="submit"> Search </button>
+    </form>
+</div>
+
+<div class="rslt">
+    <ul class="ul">
+        {%for tache in tache %}
+            <li>id: {{tache.identifiantunique}} <br>
+            date creation: {{tache.date_creation}} <br>
+            date echeance: {{tache.date_echeance}} <br>
+            description: {{tache.description}} <br>
+            statut: {{tache.statut}} <br>
+            priorite: {{tache.priorite}} <br>
+            nom medcin: {{tache.medcin.nom}} <br>
+            prenom medcin: {{tache.medcin.prenom}} <br>
+            nom patient: {{tache.dossier_medical.pateint.nom}} <br>
+            prenom patient: {{tache.dossier_medical.pateint.prenom}} <br>
+            </li>
+        {%endfor%}
+    </ul>
+</div>
+<span><a href="http://127.0.0.1:8000/cardio/" style="color: #3134ff; font-size: 20px;">GO HOME</a></span>
+
+    </body>
+</html>

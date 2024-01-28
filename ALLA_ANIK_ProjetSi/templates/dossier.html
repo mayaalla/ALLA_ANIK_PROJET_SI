@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>    
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100vw;
+    display: flex;
+    padding: 32px 32px;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+
+}
+.p{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 16px;    
+text-align: center;
+ }
+ul{
+  display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    align-items: center; 
+
+}
+.ul{
+    margin: 16px 0;
+    background-color: #070150;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 16px;
+    align-items: flex-start;
+}
+.edit{
+    width: 120px;
+    height: 40px;
+    background-color: rgb(121, 255, 228);
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    text-align: center;
+    font-weight: bolder;
+    display: flex
+    ;
+    justify-content: center;
+    align-items: center;
+}
+.action{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    gap: 16px;
+    
+}
+.sup{
+    width: 120px;
+    height: 40px;
+    background-color: rgb(255, 0, 0);
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bolder;
+    display: flex
+    ;
+    justify-content: center;
+    align-items: center;
+}
+    </style>
+<body>
+    <div class="p">LISTE DES DOSSIRES MEDICAL
+        <span><a href="http://127.0.0.1:8000/cardio/" style="color: #3134ff; font-size: 20px;">GO HOME</a></span>
+    </div>
+    <div class="p">
+        <a  class="p" href="http://127.0.0.1:8000/addd">ADD DOSSIRES MEDICAL</a>
+    </div>
+    <div>
+        <ul>
+            {% for d in d %}
+            <ul class="ul">
+            <li>
+                id : {{d.identifiantunique}} <br>
+                date creation : {{d.date_creation}} <br>
+                motif consultation : {{d.motif_consultation}} <br>
+                antecedents medicaux : {{d.antecedents_medicaux}} <br>
+                resultats examens : {{d.resultats_examens}} <br>
+                diagnostic : {{d.diagnostic}} <br>
+                departement : {{d.departement}} <br>
+                traitement prescrit : {{d.traitement_prescrit}} <br>
+                evolution sante : {{d.evolution_sante}} <br>
+                patient : {{d.patient}} <br>
+                medcin : {{d.medcin}} <br>
+            </li>
+            <div class="action">
+                
+            <a class="edit" href="http://127.0.0.1:8000/editD/{{d.identifiantunique}}">UPDATE</a>
+            <a class="sup" href="http://127.0.0.1:8000/deleteD/{{d.identifiantunique}}">DELETE</a>
+            </div>
+            </ul>
+            {% endfor %}
+        </ul>
+    </div>
+    <span><a href="http://127.0.0.1:8000/cardio/" style="color: #3134ff; font-size: 20px;">GO HOME</a></span>
+</body>
+</html>
